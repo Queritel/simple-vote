@@ -12,7 +12,7 @@ ARG UI_PATH=/opt/simple-vote/ui
 COPY ui ${UI_PATH}
 WORKDIR ${UI_PATH}
 
-ARG ENDPOINT_NAME=http://localhost:4567
+ARG ENDPOINT_NAME=http://live.queritel.io
 RUN echo "ENDPOINT_NAME is ${ENDPOINT_NAME}"
 RUN echo "export const environment = {production: true,endpoint: '${ENDPOINT_NAME}/',websocket: 'ws`echo ${ENDPOINT_NAME}|cut -b 5-999`/poll'};" > src/environments/environment.prod.ts
 RUN cat src/environments/environment.prod.ts
